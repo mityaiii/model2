@@ -30,11 +30,9 @@ function calculate() {
       xValues.push(i);
 
       const radius2 = Math.pow(radius, 2)
-      let B = mu * qty * electricity * radius2 / 2;
-
       const index2 = Math.pow(i, 2);
 
-      B = B * (1 / Math.pow(index2 + radius2, 1.5) + (1 / Math.pow(Math.pow(Math.abs(radius - i), 2) + radius2, 1.5)));
+      const B = mu * qty * electricity * radius2 / 2 * (1 / Math.pow(index2 + radius2, 1.5) + (1 / Math.pow(Math.pow(Math.abs(radius - i), 2) + radius2, 1.5)));
 
       yValues.push(B);
   }
@@ -47,7 +45,6 @@ function calculate() {
           title: 'x, м',
       },
       yaxis: {
-          rangemode: 'nonnegative',
           autorange: true,
           title: 'В, Тл',
       }
