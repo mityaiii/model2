@@ -1,7 +1,7 @@
 const mu = 4 * Math.PI * Math.pow(10, -7);
 
 function calculate() {
-  const radius = parseFloat(document.getElementById("input-radius").value);
+  let radius = parseFloat(document.getElementById("input-radius").value);
   const qty = parseFloat(document.getElementById("input-qty").value);
   const electricity = parseFloat(document.getElementById("input-electricity").value);
 
@@ -23,11 +23,11 @@ function calculate() {
   const xValues = [];
   const yValues = [];
 
+  radius /= 100;
   const step = radius / 1000;
-  const r = radius * 50;
 
-  for (let i = -r; i <= r; i += step) {
-      xValues.push(i);
+  for (let i = 0; i <= radius; i += step) {
+      xValues.push(i * 100);
 
       const radius2 = Math.pow(radius, 2)
       const index2 = Math.pow(i, 2);
